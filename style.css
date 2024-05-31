@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar.active {
+    display: none;
+    /* Masquer la barre de navigation lorsque la recherche est active */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.navbar-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-logo a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar-menu {
+    position: relative;
+}
+
+.menu__btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 30px;
+    height: 25px;
+    position: relative;
+    z-index: 2000;
+}
+
+.menu__btn span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu__btn span:nth-child(1) {
+    top: 0;
+}
+
+.menu__btn span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu__btn span:nth-child(3) {
+    bottom: 0;
+}
+
+#menu__toggle {
+    display: none;
+}
+
+#menu__toggle:checked+.menu__btn span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 50%;
+}
+
+#menu__toggle:checked+.menu__btn span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu__toggle:checked+.menu__btn span:nth-child(3) {
+    transform: rotate(-45deg);
+    bottom: 50%;
+}
+
+.menu__box,
+.navbar-search {
+    position: absolute;
+    top: 100%;
+    /* Aligner avec le bas de la barre de navigation */
+    left: 0;
+    width: 100%;
+    height: auto;
+    /* Modification de la hauteur automatique */
+    overflow: hidden;
+    /* Masquer le contenu débordant */
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: height 0.3s ease;
+    z-index: 1500;
+}
+
+.menu__box.active,
+.navbar-search.active {
+    height: auto;
+    /* Hauteur de la barre de recherche lorsque active */
+}
+
+.menu__box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.menu__box ul li {
+    margin: 20px 0;
+}
+
+.menu__box ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.menu__box ul li a:hover {
+    color: #555;
+}
+
+.navbar-icons {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-icons a.icon {
+    color: #000;
+    margin-left: 15px;
+    font-size: 1.2em;
+}
+
+.navbar-icons a.icon:hover {
+    color: #333;
+}
+
+.navbar-search input[type="text"] {
+    width: calc(100% - 40px);
+    /* Largeur de la barre de navigation moins les marges */
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    margin: 0 20px;
+    /* Marge gauche et droite pour aligner avec la barre de navigation */
+}
+
+.navbar-search input[type="text"]::placeholder {
+    color: #999;
+}
+
+.navbar-search input[type="text"]:focus {
+    border-color: #000;
+}
