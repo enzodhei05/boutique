@@ -3,19 +3,40 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.header {
+    background-color: white;
+    padding: 400px 20px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.header .enzo {
+    background-color: red;
+    padding: 100px 20px;
+    margin-top: 30px;
+    margin-left: -15px;
+    margin-right: 25px;
+    border-radius: 35px;
+}
+
+.header .enzo2 {
+    background-color: red;
+    padding: 100px 20px;
+    margin-top: 50px;
+    margin-left: -15px;
+    margin-right: 25px;
+    border-radius: 35px;
+}
+
 .navbar {
     background-color: #fff;
-    padding: 15px 20px;
+    padding: 40px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-}
-
-.navbar.active {
-    display: none;
-    /* Masquer la barre de navigation lorsque la recherche est active */
 }
 
 .navbar-container {
@@ -54,9 +75,10 @@ body {
 .menu__btn span {
     display: block;
     position: absolute;
-    height: 3px;
+    padding: -1px;
+    height: 5px;
     width: 100%;
-    background-color: #000;
+    background-color: black;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -91,29 +113,23 @@ body {
     bottom: 50%;
 }
 
-.menu__box,
-.navbar-search {
-    position: absolute;
-    top: 100%;
-    /* Aligner avec le bas de la barre de navigation */
+.menu__box {
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    height: auto;
-    /* Modification de la hauteur automatique */
-    overflow: hidden;
-    /* Masquer le contenu débordant */
+    height: 100%;
     background-color: rgba(255, 255, 255, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: height 0.3s ease;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
     z-index: 1500;
 }
 
-.menu__box.active,
-.navbar-search.active {
-    height: auto;
-    /* Hauteur de la barre de recherche lorsque active */
+#menu__toggle:checked~.menu__box {
+    transform: translateY(0);
 }
 
 .menu__box ul {
@@ -145,31 +161,53 @@ body {
 
 .navbar-icons a.icon {
     color: #000;
-    margin-left: 15px;
-    font-size: 1.2em;
+    margin-left: -30px;
+    font-size: 1.4em;
+    margin-right: 55px;
 }
 
 .navbar-icons a.icon:hover {
     color: #333;
 }
 
-.navbar-search input[type="text"] {
-    width: calc(100% - 40px);
-    /* Largeur de la barre de navigation moins les marges */
-    padding: 10px;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    outline: none;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-    margin: 0 20px;
-    /* Marge gauche et droite pour aligner avec la barre de navigation */
+.navbar-search {
+    display: none;
+    overflow: hidden;
+    height: 0;
+    transition: height 0.3s ease-in-out;
 }
 
-.navbar-search input[type="text"]::placeholder {
-    color: #999;
+
+.navbar-search.active {
+    display: block;
+    height: auto;
+    /* Utilisation de 'auto' pour ajuster la hauteur automatiquement */
+    transition: height 0.3s ease-in-out;
 }
 
-.navbar-search input[type="text"]:focus {
-    border-color: #000;
+footer {
+    padding: 300px 10px;
+    width: 100%;
+    background-color: black;
+    position: relative;
+    top: 0px;
+}
+
+.newsletter {
+    margin-top: -250px;
+    text-align: center;
+    color: white;
+}
+
+.footer .colonnes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer .colonnes p {
+    margin: 0;
+    margin-top: 100px;
+    color: white;
+    text-decoration: none;
 }

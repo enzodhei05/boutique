@@ -7,34 +7,39 @@
     <title>Louis Vuitton Menu</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.4.7/build/spline-viewer.js"></script>
+    <spline-viewer url="https://prod.spline.design/YAUOOdS8I2shxrUf/scene.splinecode"></spline-viewer>
 </head>
 
 <body>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const searchIcon = document.querySelector('.navbar-icons .fa-search');
-            const searchBar = document.querySelector('.navbar-search');
             const menuToggle = document.getElementById('menu__toggle');
             const menuBox = document.querySelector('.menu__box');
-            const navbar = document.querySelector('.navbar');
 
-            // Toggle pour afficher/masquer le menu de recherche
-            searchIcon.addEventListener('click', () => {
-                searchBar.classList.toggle('active');
-                menuBox.classList.remove('active'); // Masquer le menu lorsqu'on ouvre la recherche
-                navbar.classList.toggle('active'); // Masquer la barre de navigation
+            menuToggle.addEventListener('change', () => {
+                if (menuToggle.checked) {
+                    menuBox.style.transform = 'translateY(0)';
+                } else {
+                    menuBox.style.transform = 'translateY(-100%)';
+                }
             });
 
-            // Toggle pour afficher/masquer le menu principal
-            menuToggle.addEventListener('change', () => {
-                menuBox.classList.toggle('active');
-                searchBar.classList.remove('active'); // Masquer la recherche lorsqu'on ouvre le menu
-                navbar.classList.toggle('active'); // Masquer la barre de navigation
+            menuBox.addEventListener('click', () => {
+                menuToggle.checked = false;
+                menuBox.style.transform = 'translateY(-100%)';
             });
         });
 
     </script>
 
+    <script>
+        import { Application } from '@splinetool/runtime';
+
+        const canvas = document.getElementById('canvas3d');
+        const app = new Application(canvas);
+        app.load('https://prod.spline.design/YAUOOdS8I2shxrUf/scene.splinecode');
+    </script>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="navbar-container">
@@ -52,12 +57,9 @@
             <div class="navbar-icons">
                 <a href="#" class="icon"><i class="fa fa-search"></i></a>
                 <a href="connexion.html" class="icon"><i class="fa fa-user"></i></a>
-                <a href="#" class="icon"><i class="fa fa-shopping-bag"></i></a>
+                <a href="#" class="icon"><i class="fa fa-shopping-cart"></i></a>
+
             </div>
-        </div>
-        <div class="navbar-search">
-            <!-- Placeholder pour la barre de recherche -->
-            <input type="text" placeholder="Recherche...">
         </div>
         <div class="menu__box">
             <ul>
@@ -65,16 +67,33 @@
                 <li><a href="#">Hommes</a></li>
                 <li><a href="#">Sacs</a></li>
                 <li><a href="#">Accessoires</a></li>
-                <li><a href="#">Prêt-à-Porter</a></li>
-                <li><a href="#">Horlogerie & Joaillerie</a></li>
-                <li><a href="#">Ecrins & Accessoires</a></li>
-                <li><a href="#">Parfums</a></li>
-                <li><a href="#">Art de Vivre</a></li>
             </ul>
         </div>
     </nav>
+    <header class="header">
+        <div class="header-container">
+            <div class="test">
 
+            </div>
+        </div>
+        </div>
+    </header>
     <!-- Footer -->
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="newsletter">
+                <h1>ABONNEZ-VOUS À NOTRE NEWSLETTER</h1>
+            </div>
+            <div class="colonnes">
+                <p class href="#" style="color: white; text-decoration: none;">MENTIONS LEGALES</p>
+                <p class href="#" style="color: white; text-decoration: none;">POLITIQUE DE CONFIDENTIALITE</p>
+                <p class href="#" style="color: white; text-decoration: none;">COOKIE POLICY</p>
+                <p class href="#" style="color: white; text-decoration: none;">CENTRE DE COOKIE</p>
+            </div>
+        </div>
+        </div>
+    </footer>
 </body>
 
 </html>
