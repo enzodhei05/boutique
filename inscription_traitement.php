@@ -1,39 +1,40 @@
 <?php
+// Démarrer la session
 session_start();
 
-// Vos informations de connexion à la base de données
-$serveur = "localhost";
-$utilisateur = "votre_utilisateur";
-$mot_de_passe = "votre_mot_de_passe";
-$base_de_donnees = "votre_base_de_donnees";
+// Vérifier le token anti-CSRF
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
+    // Récupérer et nettoyer les données soumises par le formulaire
+    $username = htmlspecialchars($_POST['username']);
+    $email = htmlspecialchars($_POST['email']);
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hachage du mot de passe
 
-// Connexion à la base de données
-$connexion = new mysqli($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);
+    // Connexion à la base de données (à remplir avec vos informations de connexion)
+    $servername = "163.172.211.49";
+    $username_db = "enzo";
+    $password_db = "plop";
+    $dbname = "enzo";
 
-// Vérifier la connexion
-if ($connexion->connect_error) {
-    die("Erreur de connexion à la base de données : " . $connexion->connect_error);
-}
+    $conn = new mysqli($servername, $username_db, $password_db, $dbname);
 
-// Récupérer les données du formulaire
-$username = $_POST['username'];
-$password = $_POST['password'];
+    if ($conn->connect_error) {
+        die("Échec de la connexion : " . $conn->connect_error);
+    }
 
-// Éviter les attaques par injection SQL
-$username = stripslashes($username);
-$password = stripslashes($password);
-$username = $connexion->real_escape_string($username);
-$password = $connexion->real_escape_string($password);
+    // Requête SQL pour insérer l'utilisateur dans la table utilisateurs
+    $sql = "INSERT INTO utilisateurs (username, email, password) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $username, $email, $password);
 
-// Requête SQL pour insérer les informations d'inscription dans la base de données
-$sql = "INSERT INTO utilisateurs (nom_utilisateur, mot_de_passe) VALUES ('$username', '$password')";
+    if ($stmt->execute()) {
+        echo "Inscription réussie !";
+    } else {
+        echo "Erreur lors de l'inscription : " . $conn->error;
+    }
 
-if ($connexion->query($sql) === TRUE) {
-    // Rediriger l'utilisateur vers la page de connexion après l'inscription réussie
-    header("location: login.php");
+    // Fermer la connexion à la base de données
+    $stmt->close();
+    $conn->close();
 } else {
-    // Informer l'utilisateur en cas d'erreur lors de l'inscription
-    echo "Erreur lors de l'inscription : " . $connexion->error;
+    echo "Erreur : tentative de soumission de formulaire non autorisée.";
 }
-
-$connexion->close();

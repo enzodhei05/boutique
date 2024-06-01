@@ -5,7 +5,7 @@ body {
 
 .header {
     background-color: white;
-    padding: 400px 20px;
+    padding: 400px 0px;
     position: relative;
     width: 100%;
     height: 100%;
@@ -186,15 +186,51 @@ body {
 }
 
 footer {
-    padding: 300px 10px;
-    width: 100%;
+    padding: 50px 0;
     background-color: black;
     position: relative;
-    top: 0px;
+    bottom: 0;
+    width: 100%;
 }
 
 .newsletter {
-    margin-top: -250px;
+    padding: 50px 0;
+    text-align: center;
+    color: white;
+    margin-top: 0;
+}
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 300px;
+    font-size: 16px;
+    margin-left: 25px;
+}
+
+.newsletter button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: -2px;
+}
+
+/* Style pour le titre de la newsletter */
+.newsletter h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
     text-align: center;
     color: white;
 }
@@ -203,11 +239,17 @@ footer {
     display: flex;
     justify-content: center;
     gap: 20px;
+    margin-left: 350px;
+    margin-right: 350px;
 }
 
-.footer .colonnes p {
-    margin: 0;
-    margin-top: 100px;
+.footer .colonnes a {
     color: white;
     text-decoration: none;
+    margin-top: 10px;
+}
+
+.footer .copyright {
+    color: white;
+    text-align: center;
 }

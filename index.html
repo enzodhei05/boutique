@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Louis Vuitton Menu</title>
+    <title>VIVENDI Accueil</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.4.7/build/spline-viewer.js"></script>
-    <spline-viewer url="https://prod.spline.design/YAUOOdS8I2shxrUf/scene.splinecode"></spline-viewer>
+    <spline-viewer url="https://prod.spline.design/tZco974g5yseBkvu/scene.splinecode"></spline-viewer>
 </head>
 
 <body>
@@ -33,13 +34,6 @@
 
     </script>
 
-    <script>
-        import { Application } from '@splinetool/runtime';
-
-        const canvas = document.getElementById('canvas3d');
-        const app = new Application(canvas);
-        app.load('https://prod.spline.design/YAUOOdS8I2shxrUf/scene.splinecode');
-    </script>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="navbar-container">
@@ -52,7 +46,7 @@
                 </label>
             </div>
             <div class="navbar-logo">
-                <a href="#">Louis Vuitton</a>
+                <a href="#">VIVENDI</a>
             </div>
             <div class="navbar-icons">
                 <a href="#" class="icon"><i class="fa fa-search"></i></a>
@@ -84,12 +78,26 @@
         <div class="footer-container">
             <div class="newsletter">
                 <h1>ABONNEZ-VOUS À NOTRE NEWSLETTER</h1>
+                <form action="newsletter.php" method="POST">
+                    <input type="email" name="email" placeholder="Entrez votre adresse e-mail"
+                        style="background-color:black;color: white;" required>
+                    <button type="submit" style="background-color:black ; color:white;">S'abonner</button>
+                </form>
             </div>
             <div class="colonnes">
-                <p class href="#" style="color: white; text-decoration: none;">MENTIONS LEGALES</p>
-                <p class href="#" style="color: white; text-decoration: none;">POLITIQUE DE CONFIDENTIALITE</p>
-                <p class href="#" style="color: white; text-decoration: none;">COOKIE POLICY</p>
-                <p class href="#" style="color: white; text-decoration: none;">CENTRE DE COOKIE</p>
+                <a class href="#" style="color: white; text-decoration: none;">MENTIONS LEGALES</a>
+                <hr>
+                <a class href="#" style="color: white; text-decoration: none;">POLITIQUE DE CONFIDENTIALITE</a>
+                <hr>
+                <a class href="#" style="color: white; text-decoration: none;">COOKIE POLICY</a>
+                <hr>
+                <a class href="#" style="color: white; text-decoration: none;">CENTRE DE COOKIE</a>
+                <hr>
+            </div>
+
+            <div class="copyright">
+                <p>© 2024 VIVENDI, Inc. Tous droits réservés</p>
+                <a class="icon"><i class="	fas fa-map-marker-alt"> France</i></a>
             </div>
         </div>
         </div>
