@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIVENDI Accueil</title>
     <link rel="stylesheet" href="style.css">
+    <script src="cart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.4.7/build/spline-viewer.js"></script>
@@ -20,18 +21,17 @@
 
             menuToggle.addEventListener('change', () => {
                 if (menuToggle.checked) {
-                    menuBox.style.transform = 'translateY(0)';
+                    menuBox.style.transform = 'translateX(100%)';
                 } else {
-                    menuBox.style.transform = 'translateY(-100%)';
+                    menuBox.style.transform = 'translateX(-100%)';
                 }
             });
 
             menuBox.addEventListener('click', () => {
                 menuToggle.checked = false;
-                menuBox.style.transform = 'translateY(-100%)';
+                menuBox.style.transform = 'translateX(-100%)';
             });
         });
-
     </script>
 
     <!-- Navigation Bar -->
@@ -51,8 +51,7 @@
             <div class="navbar-icons">
                 <a href="#" class="icon"><i class="fa fa-search"></i></a>
                 <a href="connexion.html" class="icon"><i class="fa fa-user"></i></a>
-                <a href="#" class="icon"><i class="fa fa-shopping-cart"></i></a>
-
+                <a href="#" class="icon" id="cart-toggle"><i class="fa fa-shopping-cart"></i></a>
             </div>
         </div>
         <div class="menu__box">
@@ -64,21 +63,47 @@
             </ul>
         </div>
     </nav>
+
+    <div class="cart__box" id="cartBox">
+        <div class="cart__header">
+            <h2>Votre Panier</h2>
+            <button id="close-cart">Fermer</button>
+        </div>
+        <div class="cart__content">
+            <!-- Contenu du panier -->
+            <div class="cart__item">
+                <img src="path/to/product-image.jpg" alt="Product Image">
+                <div class="item-details">
+                    <h2>Nom du produit</h2>
+                    <p>Description du produit</p>
+                    <p class="price">Prix: $50.00</p>
+                </div>
+                <button class="remove-btn">Supprimer</button>
+            </div>
+            <!-- Ajoutez d'autres éléments du panier ici si nécessaire -->
+        </div>
+        <div class="cart__summary">
+            <!-- Résumé du panier -->
+            <h2>Résumé du panier</h2>
+            <p>Total des articles: 3</p>
+            <p>Total: $150.00</p>
+            <button class="checkout-btn">Passer à la caisse</button>
+        </div>
+    </div>
+
     <header class="header">
         <div class="header-container">
             <div class="test">
-
+                <!-- Add content here -->
             </div>
-        </div>
         </div>
     </header>
     <!-- Footer -->
-
     <footer class="footer">
         <div class="footer-container">
             <div class="newsletter">
                 <h1>ABONNEZ-VOUS À NOTRE NEWSLETTER</h1>
-                <form action="newsletter.php" method="POST">
+                <form action="#" method="POST">
                     <input type="email" name="email" placeholder="Entrez votre adresse e-mail"
                         style="background-color:black;color: white;" required>
                     <button type="submit" style="background-color:black ; color:white;">S'abonner</button>
@@ -99,7 +124,6 @@
                 <p>© 2024 VIVENDI, Inc. Tous droits réservés</p>
                 <a class="icon"><i class="	fas fa-map-marker-alt"> France</i></a>
             </div>
-        </div>
         </div>
     </footer>
 </body>
