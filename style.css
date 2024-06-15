@@ -33,7 +33,7 @@ spline-viewer {
     top: 14%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: black;
     font-size: 35px;
     z-index: 10;
 }
