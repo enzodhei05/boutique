@@ -3,102 +3,175 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Connexion</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion Revolut Business</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      margin: 0;
-      padding: 0;
+      background-color: black;
+      color: white;
     }
 
     .container {
-      max-width: 400px;
-      margin: 80px auto;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    h2 {
       text-align: center;
-      color: #333;
+      max-width: 400px;
+      margin: 150px auto 0;
+      padding: 20px;
+      background-color: black;
+      border-radius: 10px;
     }
 
-    .form-group {
+    .home-link {
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+    }
+
+    .container h1 {
+      font-size: 32px;
+      font-family: Arial, Helvetica, sans-serif;
       margin-bottom: 20px;
+      color: white;
     }
 
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #555;
+    .container p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: white;
     }
 
-    input[type="text"],
-    input[type="password"] {
+    .container input[type="email"],
+    .container button {
       width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      padding: 15px;
+      margin-bottom: 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
       box-sizing: border-box;
     }
 
-    button[type="submit"] {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      background-color: #007bff;
+    .container input[type="email"] {
+      background-color: #4F4F4F;
+      border-radius: 5px;
+    }
+
+    .container #continue-button {
+      border-radius: 35px;
+      background-color: blue;
       color: #fff;
-      border-radius: 4px;
+      font-size: 18px;
       cursor: pointer;
-      display: block;
-      margin: 0 auto;
-      /* Centrer le bouton */
+      opacity: 0.5;
+      pointer-events: none;
     }
 
-    button[type="submit"]:hover {
-      background-color: #0056b3;
+    .container #continue-button.enabled {
+      opacity: 1;
+      pointer-events: auto;
     }
 
-    p {
+    .container .separator {
+      display: flex;
+      align-items: center;
       text-align: center;
-      margin-top: 15px;
+      margin: 30px 0;
+    }
+
+    .container .separator hr {
+      flex: 1;
+      border: none;
+      border-top: 1px solid #fff;
+    }
+
+    .container .separator span {
+      margin: 0 10px;
       font-size: 14px;
+      color: white;
     }
 
-    p a {
-      text-decoration: none;
-      color: blue;
+    .container .alternative-login {
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
     }
 
-    p a:hover {
-      text-decoration: underline;
-      color: grey;
+    .container .alternative-login button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #fff;
+      border-radius: 35px;
+      background-color: #121212;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .container .alternative-login button img {
+      width: 24px;
+      height: 24px;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h2>Connexion</h2>
-    <form action="connexion_traitement.php" method="POST">
-      <div class="form-group">
-        <label for="username">Nom d'utilisateur</label>
-        <input type="text" id="username" name="username" required>
+  <nav style="font-family: Arial, Helvetica, sans-serif;">
+    <h1 class="home-link" onclick="goToHome()"
+      style="margin-left: 25px; margin-top: 30px;text-decoration: none;color: white;">
+      FlexiBank</h1>
+  </nav>
+  <center>
+    <div class="container">
+      <h1>Heureux de vous revoir !</h1>
+      <p>Saisissez l'adresse e-mail associée à votre compte FlexiBank</p>
+      <input type="email" id="email" placeholder="Saisissez votre adresse e-mail">
+      <button id="continue-button">Continuer</button>
+      <div class="separator">
+        <hr>
+        <span>ou</span>
+        <hr>
       </div>
-      <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password" id="password" name="password" required>
+      <div class="alternative-login">
+        <button>
+          <img src="http://pluspng.com/img-png/google-logo-png-google-logo-icon-png-transparent-background-1000.png"
+            alt="Google">
+          Se connecter avec Google
+        </button>
+        <button>
+          <img src="C:\Users\enzo\Downloads\apple-logo-white-clip-art-290872-removebg-preview.png" alt="Apple">
+          Se connecter avec Apple
+        </button>
+        <!-- Lien pour créer un compte -->
+        <p> <a href="signup.html"
+            style="color: blue; text-decoration: none;font-family: Arial, Helvetica, sans-serif;">Créer un compte</a>
+        </p>
       </div>
-      <button type="submit">Se connecter</button>
-    </form>
-  </div>
-  <p>Vous n'avez pas de compte ?<a href="inscription.html"> Crée un compte</a></p>
-  <p class="back-to-menu"><a href="index.html">← Retour au menu</a></p>
+    </div>
+  </center>
+  <script>
+    document.getElementById('email').addEventListener('input', function () {
+      var emailInput = this.value;
+      var continueButton = document.getElementById('continue-button');
+      if (emailInput && validateEmail(emailInput)) {
+        continueButton.classList.add('enabled');
+      } else {
+        continueButton.classList.remove('enabled');
+      }
+    });
+
+    function validateEmail(email) {
+      var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    // Redirection vers l'accueil
+    function goToHome() {
+      window.location.href = 'index.html'; // Remplacez 'index.html' par l'URL de votre page d'accueil
+    }
+  </script>
 </body>
 
 </html>
